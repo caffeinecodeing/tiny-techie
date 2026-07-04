@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tiny Techie — Build things. Ship things. Learn things.</title>
+  <meta name="description" content="A newsletter about vibe coding, building in public, and figuring it out as you go. For non-techies.">
+  <style>
+    /* Reset & Base */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #12100E;
+      color: #EBE1D2;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    a {
+      color: #EBE1D2;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: #C3874B;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .nav-logo {
+      font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #C3874B;
+      letter-spacing: 0.08em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      opacity: 0.85;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+      color: #C3874B;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 5rem 2rem 3rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero-heading {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(2.8rem, 7vw, 4.5rem);
+      line-height: 1.15;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-heading .copper {
+      color: #C3874B;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      color: #EBE1D2;
+      opacity: 0.75;
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* Signup Form */
+    .signup {
+      text-align: center;
+      padding: 2.5rem 2rem 1.5rem;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .signup-form {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .signup-form input[type="email"] {
+      flex: 1;
+      padding: 0.85rem 1rem;
+      border: 1px solid rgba(195, 135, 75, 0.3);
+      border-radius: 6px;
+      background: #231D19;
+      color: #EBE1D2;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .signup-form input[type="email"]::placeholder {
+      color: rgba(235, 225, 210, 0.4);
+    }
+
+    .signup-form input[type="email"]:focus {
+      border-color: #C3874B;
+    }
+
+    .signup-form button {
+      padding: 0.85rem 1.75rem;
+      background: #C3874B;
+      color: #12100E;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.1s ease;
+      white-space: nowrap;
+    }
+
+    .signup-form button:hover {
+      background: #d4984f;
+      transform: translateY(-1px);
+    }
+
+    .signup-form button:active {
+      transform: translateY(0);
+    }
+
+    .signup-fine-print {
+      font-size: 0.8rem;
+      opacity: 0.5;
+    }
+
+    /* Social Proof */
+    .social-proof {
+      text-align: center;
+      padding: 2rem 2rem 3rem;
+      font-size: 0.95rem;
+      color: #C3874B;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    /* Feature Cards */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1rem 2rem 4rem;
+    }
+
+    .card {
+      background: #231D19;
+      border-radius: 10px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      border: 1px solid rgba(195, 135, 75, 0.1);
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .card:hover {
+      border-color: rgba(195, 135, 75, 0.35);
+      transform: translateY(-3px);
+    }
+
+    .card h3 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: #EBE1D2;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      opacity: 0.65;
+      line-height: 1.5;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2.5rem 2rem;
+      border-top: 1px solid rgba(195, 135, 75, 0.12);
+      font-size: 0.85rem;
+      opacity: 0.45;
+      letter-spacing: 0.04em;
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      nav {
+        padding: 1rem 1.25rem;
+      }
+
+      .nav-links {
+        gap: 1.25rem;
+        font-size: 0.85rem;
+      }
+
+      .hero {
+        padding: 3.5rem 1.25rem 2rem;
+      }
+
+      .signup {
+        padding: 2rem 1.25rem 1rem;
+      }
+
+      .signup-form {
+        flex-direction: column;
+      }
+
+      .signup-form input[type="email"],
+      .signup-form button {
+        width: 100%;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+        padding: 1rem 1.25rem 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-logo">TINY TECHIE</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#features">Blog</a></li>
+      <li><a href="#signup">Subscribe</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1 class="hero-heading">
+      Build things.<br>
+      Ship things.<br>
+      <span class="copper">Learn things.</span>
+    </h1>
+    <p class="hero-subtitle">
+      A newsletter about vibe coding, building in public, and figuring it out as you go. For non-techies.
+    </p>
+  </section>
+
+  <!-- Email Signup -->
+  <section class="signup" id="signup">
+    <form class="signup-form" action="https://tinytechie.substack.com/subscribe" method="post">
+      <input type="email" name="email" placeholder="your@email.com" required>
+      <button type="submit">Subscribe</button>
+    </form>
+    <p class="signup-fine-print">Free. No spam. Unsubscribe anytime.</p>
+  </section>
+
+  <!-- Social Proof -->
+  <div class="social-proof">
+    Join 100+ builders who read Tiny Techie every week
+  </div>
+
+  <!-- Feature Cards -->
+  <section class="features" id="features">
+    <div class="card">
+      <h3>Weekend Builds</h3>
+      <p>Real projects, real time</p>
+    </div>
+    <div class="card">
+      <h3>AI Collaboration</h3>
+      <p>Prompts that work</p>
+    </div>
+    <div class="card">
+      <h3>Free Tools</h3>
+      <p>Build on $0</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    Coffee Powered &middot; Network Approved &middot; Tiny but Mighty
+  </footer>
+
+</body>
+</html>
